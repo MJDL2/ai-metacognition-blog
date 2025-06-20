@@ -1,0 +1,175 @@
+/* Base font settings */
+body {
+    font-family: 'Noto Sans KR', 'Inter', sans-serif;
+}
+
+/* Custom styles for Tailwind's typography plugin */
+.prose {
+    --tw-prose-body: theme(colors.slate[700]);
+    --tw-prose-headings: theme(colors.slate[900]);
+    --tw-prose-lead: theme(colors.slate[600]);
+    --tw-prose-links: theme(colors.indigo[600]);
+    --tw-prose-bold: theme(colors.slate[900]);
+    --tw-prose-counters: theme(colors.slate[500]);
+    --tw-prose-bullets: theme(colors.slate[400]);
+    --tw-prose-hr: theme(colors.slate[200]);
+    --tw-prose-quotes: theme(colors.slate[900]);
+    --tw-prose-quote-borders: theme(colors.indigo[300]);
+    --tw-prose-captions: theme(colors.slate[500]);
+    --tw-prose-code: theme(colors.indigo[600]);
+    --tw-prose-pre-code: theme(colors.indigo[200]);
+    --tw-prose-pre-bg: theme(colors.slate[800]);
+    --tw-prose-th-borders: theme(colors.slate[300]);
+    --tw-prose-td-borders: theme(colors.slate[200]);
+}
+
+/* Custom AI quote block */
+.ai-quote {
+    padding: 1rem 1.5rem;
+    border-left-width: 4px;
+    border-radius: 0.25rem;
+    background-color: theme(colors.slate.100);
+    color: theme(colors.slate.700);
+    font-style: italic;
+}
+
+.ai-quote.gpt-quote {
+    border-color: theme(colors.sky.500);
+    background-color: theme(colors.sky.50);
+}
+.ai-quote.claude-quote {
+    border-color: theme(colors.purple.500);
+    background-color: theme(colors.purple.50);
+}
+.ai-quote.gemini-quote {
+    border-color: theme(colors.amber.500);
+    background-color: theme(colors.amber.50);
+}
+
+.ai-quote p {
+    margin: 0;
+}
+.ai-quote p:not(:first-child) {
+    margin-top: 0.5rem;
+}
+/* Custom table styles */
+.table-cell {
+    padding: 0.75rem 1rem;
+    vertical-align: top;
+}
+
+/* Key-frame animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+/* Scroll animation preparation */
+.content-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Interactive Log Styles */
+.interactive-log {
+    margin-top: 2rem;
+    border: 1px solid theme(colors.slate.200);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.interactive-log summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    background-color: theme(colors.slate.100);
+    cursor: pointer;
+    font-weight: 600;
+    color: theme(colors.slate.800);
+    transition: background-color 0.2s ease;
+}
+.interactive-log summary:hover {
+    background-color: theme(colors.slate.200);
+}
+
+.interactive-log summary::-webkit-details-marker {
+    display: none;
+}
+
+.interactive-log .chevron {
+    transition: transform 0.3s ease;
+}
+
+.interactive-log[open] .chevron {
+    transform: rotate(180deg);
+}
+
+.log-content {
+    overflow: hidden;
+}
+
+.log-entry {
+    padding: 1.25rem;
+    background-color: theme(colors.slate.800);
+    color: theme(colors.slate.300);
+    font-family: 'Inter', monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.log-entry p {
+    margin: 0 0 1rem 0;
+    position: relative;
+    padding-left: 2rem;
+}
+.log-entry p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+.log-entry .log-user::before {
+    content: '👤';
+    left: 4px;
+    top: 2px;
+}
+.log-entry .log-claude::before { background-color: theme(colors.purple.500); }
+.log-entry .log-gpt::before { background-color: theme(colors.sky.500); }
+.log-entry .log-gemini::before { background-color: theme(colors.amber.500); }
+.log-entry .log-comment {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid theme(colors.indigo.400);
+    font-style: italic;
+    color: theme(colors.slate.200);
+}
+.log-entry .log-comment::before { display: none; }
