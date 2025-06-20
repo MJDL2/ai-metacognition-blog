@@ -11,8 +11,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" src="script.js"></script>
+    
+    <!-- 강제 표시용 스타일 - JavaScript 로딩 실패 시 대비 -->
+    <style>
+        /* Ensure content is always visible */
+        .content-section {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* Fallback if CSS file doesn't load */
+        body { 
+            font-family: 'Noto Sans KR', 'Inter', sans-serif; 
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .max-w-4xl { max-width: 56rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .prose { color: #374151; line-height: 1.75; }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-noto-sans-kr antialiased">
+    
+    <!-- JavaScript 비활성화 시 알림 -->
+    <noscript>
+        <style>
+            .content-section { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
